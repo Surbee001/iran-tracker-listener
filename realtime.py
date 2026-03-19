@@ -22,7 +22,7 @@ SESSION_FILE = os.environ.get("SESSION_FILE", "backfill_session")
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://tifrdeaitgrwylxjlqdq.supabase.co")
 SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRpZnJkZWFpdGdyd3lseGpscWRxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mzg1MDAzOSwiZXhwIjoyMDg5NDI2MDM5fQ.ovLkA9L5igHGXFG2XMoCzrDtduL54GYthq0Y-YSvtp4")
 CRON_SECRET = os.environ.get("CRON_SECRET", "iran-tracker-cron-secret-change-me")
-CRON_URL = os.environ.get("CRON_URL", "https://irantracker.netlify.app/api/cron/ingest")
+CRON_URL = "https://irantracker.netlify.app/api/cron/ingest"
 
 # Channels to monitor — add any channel username here
 # Farsi/Arabic channels work — AI translates automatically
