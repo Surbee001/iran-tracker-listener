@@ -12,6 +12,7 @@ import os
 import urllib.request
 from datetime import datetime, timezone
 from telethon import TelegramClient, events
+from telethon.sessions import StringSession
 from telethon.tl.types import MessageMediaPhoto, MessageMediaDocument
 
 API_ID = int(os.environ.get("TELEGRAM_API_ID", "35088062"))
@@ -150,7 +151,10 @@ async def process_buffer():
 async def main():
     global buffer_task
 
-    client = TelegramClient(SESSION_FILE, API_ID, API_HASH)
+    # Use StringSession for cloud deployment, fall back to file session locally
+    session_string = os.environ.get("TELEGRAM_SESSION", "")
+    session = StringSession(session_string) if session_string else SESSION_FILE
+    client = TelegramClient(session, API_ID, API_HASH)
     await client.start()
     print("=" * 50)
     print("  IRAN TRACKER — Real-time Telegram Listener")
